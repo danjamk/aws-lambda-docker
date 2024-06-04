@@ -9,6 +9,20 @@ Be sure docker is running and you are logged in
 
 
 Bootstrap the environment (once for your computer)
-Initialize project (once for the project)
+Initialize project (once for the project - but not needed if you cloned this repo)
+
+create virtual env
+source venv
+install requirements
+
+
+docker build -t dlambda:latest .
+
+
+
+
+
+TODO:
+- Test
 
 
