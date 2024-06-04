@@ -15,24 +15,41 @@ A few things to make sure yuo have in order before you begin...
 - Be sure you bootstrapped your CDK setup
 
 Clone the project
-`git clone https://github.com/danjamk/aws-lambda-docker.git`
+
+```
+git clone https://github.com/danjamk/aws-lambda-docker.git
+```
 
 Create and enable the python virtual environment
-`cd aws-lambda-docker`
 
-`python -m venv .venv`
+```
+cd aws-lambda-docker
+```
 
-`source .venv/bin/activate`
+```
+python -m venv .venv
+source .venv/bin/activate
+```
+
 
 Install the python dependencies
-`pip install -r requirements.txt`
+
+```
+pip install -r requirements.txt
+```
 
 
 Initialize the cloud formation scripts
-`cdk synth`
+
+```
+cdk synth
+```
 
 Deploy the stack to CloudFormation
-`cdk deploy`
+
+```
+cdk deploy
+```
 
 
 
