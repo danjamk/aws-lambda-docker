@@ -24,7 +24,7 @@ A few things to make sure yuo have in order before you begin...
 
 Note: These commands were based on a Linux system, but also work quite well on a Mac.  They will vary slighlty for a Windows machine.
 
-
+### The Steps
 Clone the GitHub project
 
 ```
