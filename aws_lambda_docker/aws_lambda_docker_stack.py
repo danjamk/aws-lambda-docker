@@ -41,13 +41,5 @@ class AwsLambdaDockerStack(Stack):
         # Provide output to for the function
         cdk.CfnOutput(self, "FunctionUrlValue", value=function_url.url)
 
-        #grant access to ssm for parameter store
-        docker_function.add_to_role_policy(iam.PolicyStatement(
-            actions=["ssm:GetParameter"],
-            resources=["*"]
-        ))
-
-        print(f"Lambda Function URL: {function_url.url}")
-
 
 
