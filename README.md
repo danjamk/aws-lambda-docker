@@ -1,28 +1,35 @@
 # Simple AWS Lambda Docker example
-On the surface this is a very simple Hello World project that shows you how to use AWS Cloud Development Kit (CDK) to deploy a lambda function in a docker container.  This is valuable when your Lambda function exceeds the upload size quota of 250MB (50MB zipped).  By using a docker image to deploy it you can create image sizes up to 10GB!
+On the surface this is a very simple Hello World project that shows you how to use AWS Cloud Development Kit (CDK) to 
+deploy a lambda function in a docker container.  It is indeed simple.  I created it mostly as a simple jumpstart template for new projects
+I create.  I like it better than others I have found because it is super simple and stands alone.  Hopefully you will appreciate it.
+
+This approach to Lambda is valuable when your Lambda function exceeds the upload size quota of 250MB (50MB zipped).  
+By using a docker image to deploy it you can create image sizes up to 10GB!  This is great when you are loading up your function with lots of
+dependencies for things like AI and machine learning.  
 
 Other features in this sample project:
-- Cloud Deployent Kit - CDK allows you to create AWS infrastructure as code (similar to CloudFormation, Terrafor, Serveless, etc.) - except it allows you to experss your infrastructure in a programming language (python in this case)
+- Cloud Deployent Kit - CDK allows you to create AWS infrastructure as code (similar to CloudFormation, Terrafor, Serveless, etc.) - 
+except it allows you to express your infrastructure in a programming language (python in this case)
 - FastAPI - The Lambda function endpoint is using FastAPI - a nice framework for creating and testing API's
-
 
 
 ## Using this project as your start
 Note: The [README-create.md](README-create.md) file has the instructions on how this project was created from scratch prior to the following steps
+- The Dockerfile and requirements.txt are located in the `image` directory and can be customized to your needs
+- The code for the actual API is located in: `image/src/main.py`
 
 
-### Prerequisits
+### Prerequisites
 - Docker
 - AWS Account and access setup locally
 - AWS CDK - [Getting started with the AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html) is a great resource for setting this up.
 
 
-
-A few things to make sure yuo have in order before you begin...
+A few things to make sure you have in order before you begin...
 - Docker is running and you are logged into your account
-- Be sure you bootstrapped your CDK setup
+- Be sure you bootstrapped your CDK setup - `cdk bootstrap aws://123456789012/us-east-1` (use your own account number and region)
 
-Note: These commands were based on a Linux system, but also work quite well on a Mac.  They will vary slighlty for a Windows machine.
+Note: These commands were based on a Linux docker image, but also work quite well on a Mac.  They will vary slightly for a Windows machine.
 
 ### The Steps
 Clone the GitHub project
@@ -42,11 +49,18 @@ source .venv/bin/activate
 
 
 
-Install the python dependencies
+Install the python dependencies for CDK
 
 ```
 pip install -r requirements.txt
 ```
+
+Install the python dependencies for local development, which in this case is testing the endpoint
+
+```
+pip install -r requirements-dev.txt
+```
+
 
 You may need to bootstrap the CDK environment (use your own account number and region)
 
@@ -55,8 +69,7 @@ cdk bootstrap aws://123456789012/us-east-1
 ```
 
 
-
-Initialize the cloud formation scripts
+Initialize the cloud formation scripts (not really needed, but good practice)
 
 ```
 cdk synth
