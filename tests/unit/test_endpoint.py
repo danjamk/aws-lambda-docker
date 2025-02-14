@@ -5,7 +5,7 @@ import boto3
 
 
 def get_stack_output(stack_name, output_key):
-    client = boto3.client('cloudformation')
+    client = boto3.client('cloudformation', region_name='us-east-2')  # You need to change to your region if testing
     response = client.describe_stacks(StackName=stack_name)
     for stack in response['Stacks']:
         for output in stack['Outputs']:
