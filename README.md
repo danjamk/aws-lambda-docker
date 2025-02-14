@@ -48,6 +48,12 @@ Install the python dependencies
 pip install -r requirements.txt
 ```
 
+You may need to bootstrap the CDK environment (use your own account number and region)
+
+```
+cdk bootstrap aws://123456789012/us-east-1
+```
+
 
 
 Initialize the cloud formation scripts
